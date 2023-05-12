@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quer namorar como o Caio?</title>
+    <style>
+        body {
+            font-size: 36px;
+            text-align: center;
+        }
+
+        #simButton {
+            font-size: 48px;
+            background-color: green;
+            color: white;
+            margin: 10px;
+            padding: 20px 40px;
+            border-radius: 10px;
+        }
+
+        #naoButton {
+            font-size: 48px;
+            background-color: red;
+            color: white;
+            margin: 10px;
+            padding: 20px 40px;
+            border-radius: 10px;
+            position: absolute;
+        }
+
+        #mensagem {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function randomizeButtonPosition() {
+            var naoButton = document.getElementById("naoButton");
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+            var randomX = Math.floor(Math.random() * (screenWidth - 100));
+            var randomY = Math.floor(Math.random() * (screenHeight - 100));
+            naoButton.style.left = randomX + "px";
+            naoButton.style.top = randomY + "px";
+        }
+
+        window.addEventListener("DOMContentLoaded", function() {
+            var naoButton = document.getElementById("naoButton");
+            naoButton.addEventListener("click", function() {
+                randomizeButtonPosition();
+            });
+
+            var simButton = document.getElementById("simButton");
+            var mensagem = document.getElementById("mensagem");
+
+            simButton.addEventListener("click", function() {
+                mensagem.style.display = "block";
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Quer namorar como o Caio?</h1>
+    <button id="simButton">Sim</button>
+    <button id="naoButton">Não</button>
+    <p id="mensagem">Fico feliz, bb! &lt;3</p>
+</body>
+</html>
